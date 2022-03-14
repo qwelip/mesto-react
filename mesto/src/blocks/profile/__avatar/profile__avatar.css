@@ -1,0 +1,16 @@
+.profile__avatar {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.1s ease;
+  background-size: 100% 100%;
+}
+
+.profile__photo-edit:hover .profile__avatar {
+  opacity: 0.2;
+}
+
+@media (max-width: 600px) {
+  .profile__avatar {
+    margin: 0 0 22px;
+  }
+}

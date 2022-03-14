@@ -1,0 +1,16 @@
+.footer__text {
+  margin: 47px 0 60px 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
+
+@media (max-width: 320px) {
+  .footer__text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 34px;
+    margin-bottom: 36px;
+  }
+}
