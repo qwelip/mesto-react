@@ -1,10 +1,9 @@
 class Api{
-  constructor({cardsUrl, updateUserInfoUrl, getUserInfoUrl, token}, handleError) {
+  constructor({cardsUrl, updateUserInfoUrl, getUserInfoUrl, token}) {
     this._cardsUrl = cardsUrl;
     this._updateUserInfoUrl = updateUserInfoUrl;
     this._getUserInfoUrl = getUserInfoUrl;
     this._token = token;
-    this._handleError = handleError;
   }
 
   handleResponse(res) {
@@ -22,7 +21,7 @@ class Api{
       }
     })
     .then((res) => this.handleResponse(res))
-    .catch ((error) => this._handleError(error))
+    .catch ((error) => console.log(error))
   }
 
   getUserInfo() {
@@ -33,7 +32,7 @@ class Api{
     }
     })
     .then((res) => this.handleResponse(res))
-    .catch((error) => this._handleError(error))
+    .catch((error) => console.log(error))
   }
 
   setUserInfo = ({name, about}) => {
@@ -108,15 +107,12 @@ class Api{
   }
 }
 
-// перенести в папку ютилз константы
-
 const api = new Api ({
   cardsUrl: 'https://mesto.nomoreparties.co/v1/cohort36/cards',
   updateUserInfoUrl: 'https://mesto.nomoreparties.co/v1/cohort36/users',
   getUserInfoUrl: 'https://nomoreparties.co/v1/cohort36/users/me',
   token: 'edd7092a-48ca-4ae4-81a0-05e569754f8c'
-  },
-  // handleError сделать обработчик ошибок или удалить его 
+  }
 )
 
 export default api

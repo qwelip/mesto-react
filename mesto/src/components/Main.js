@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import ImagePopup from './ImagePopup';
 import PopupWithForm from './PopupWithForm';
 import pencilImg from '../images/pencil.svg';
 import plusImg from '../images/plus.svg';
-import trashImg from '../images/Trash.svg';
 import api from '../utils/Api';
-
+ 
 const Main = ({
     onEditProfile, 
     onAddPlace, 
@@ -12,7 +13,9 @@ const Main = ({
     isEditProfilePopupOpen,
     isAddPlacePopupOpen,
     isEditAvatarPopupOpen,
-    closeAllPopup
+    closeAllPopup,
+    card,
+    onCardClick
   }) => {
 
     const [userName, setUserName] = useState('');
@@ -72,24 +75,17 @@ const Main = ({
         <section className="elements">
           {
             cards.map( card => (
-              <div className="element" key={card._id}>
-                <button type="button" className="element__trashBtn">
-                  <img src={trashImg} alt="Иконка корзины"/>
-                </button>
-                <img className="element__photo" src={card.link} alt=""/>
-                <div className="element__description">
-                  <h2 className="element__title">{card.name}</h2>
-                  <div className="element__like-section">
-                    <button type="button" className="element__likeBtn"></button>
-                    <p className="element__like-count">{card.likes.length}</p>
-                  </div>
-                </div>
-              </div>
-            )
+                <Card key={card._id} onCardClick={onCardClick} {...card}/>
+              )
             )
           }
         </section>
       </main>
+
+      <ImagePopup
+        card={card}
+        onClose={closeAllPopup}
+      />
 
       <PopupWithForm
         name='profile-edit'
