@@ -84,26 +84,6 @@ class Api{
     })
   }
 
-  // addLike = (cardId) => {
-  //   return fetch(`${this._cardsUrl}/${cardId}/likes`, {
-  //     method: 'PUT',
-  //     headers: {
-  //       authorization: this._token,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  // }
-
-  // deleteLike = (cardId) => {
-  //   return fetch(`${this._cardsUrl}/${cardId}/likes`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       authorization: this._token,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  // }
-
   changeAvatar = (url) => {
     return fetch(`${this._updateUserInfoUrl}/me/avatar`, {
       method: 'PATCH',
