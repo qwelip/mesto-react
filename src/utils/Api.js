@@ -73,9 +73,10 @@ class Api{
     })
   }
 
-  addLike = (cardId) => {
+  changeLikeCardStatus = (cardId, isLiked) => {
+    const meth = isLiked ? 'DELETE' : 'PUT';
     return fetch(`${this._cardsUrl}/${cardId}/likes`, {
-      method: 'PUT',
+      method: meth,
       headers: {
         authorization: this._token,
         'Content-Type': 'application/json'
@@ -83,15 +84,25 @@ class Api{
     })
   }
 
-  deleteLike = (cardId) => {
-    return fetch(`${this._cardsUrl}/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    })
-  }
+  // addLike = (cardId) => {
+  //   return fetch(`${this._cardsUrl}/${cardId}/likes`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       authorization: this._token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  // }
+
+  // deleteLike = (cardId) => {
+  //   return fetch(`${this._cardsUrl}/${cardId}/likes`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       authorization: this._token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  // }
 
   changeAvatar = (url) => {
     return fetch(`${this._updateUserInfoUrl}/me/avatar`, {
