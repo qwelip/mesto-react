@@ -21,7 +21,6 @@ class Api{
       }
     })
     .then((res) => this.handleResponse(res))
-    .catch ((error) => console.log(error))
   }
 
   getUserInfo() {
@@ -32,7 +31,6 @@ class Api{
     }
     })
     .then((res) => this.handleResponse(res))
-    .catch((error) => console.log(error))
   }
 
   setUserInfo = ({name, about}) => {
